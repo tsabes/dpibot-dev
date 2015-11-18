@@ -30,39 +30,35 @@ slack.on('message', function(message) {
       listStr += stock.name + '\n';
     });
     channel.send(listStr);
-  } else {
-
+  } else if(message.text == "!한강") {
+      request('http://hangang.dkserver.wo.tc', function (error, response, body) {
+          if (!error && response.statusCode == 200) {
+              var result = JSON.parse(body);
+              channel.send("`많이 힘드시죠? 현재 한강물 온도는 " + result.temp + "°C 입니다.`");
+          } else {
+              channel.send("죄송합니다. 현재 한강물 온도를 알아내지 못했습니다.");
+          }
+      });
+  } else if(message.text == "!춤") {
+      var data = 
+          '⊂_ヽ\n' +
+          '　 ＼＼ Λ＿Λ\n' +
+          '　　 ＼( \'ㅅ\' ) 두둠칫\n' +
+          '　　　 >　⌒ヽ\n' +
+          '　　　/ 　 へ＼\n' +
+          '　　 /　　/　＼＼\n' +
+          '　　 ﾚ　ノ　　 ヽ_つ\n' +
+          '　　/　/ 두둠칫\n' +
+          '　 /　/|\n' +
+          '　(　(ヽ\n' +
+          '　|　|、＼\n' +
+          '　| 丿 ＼ ⌒)\n' +
+          '　| |　　) /\n' +
+          '(`ノ )　　Lﾉ\n' +
+          '' +
+          '';
+          channel.send(data);
   }
-  
-  // } else if(message.text == "!한강") {
-  //   request('http://hangang.dkserver.wo.tc', function (error, response, body) {
-  //     if (!error && response.statusCode == 200) {
-  //       var result = JSON.parse(body);
-  //       channel.send("`많이 힘드시죠? 현재 한강물 온도는 " + result.temp + "°C 입니다.`");
-  //     } else {
-  //       channel.send("죄송합니다. 현재 한강물 온도를 알아내지 못했습니다.");
-  //     }
-  //   });
-  // } else if(message.text == "!기쁨") {
-  //   var data = 
-  //     '⊂_ヽ\n' +
-  //     '　 ＼＼ Λ＿Λ\n' +
-  //     '　　 ＼( \'ㅅ\' ) 두둠칫\n' +
-  //     '　　　 >　⌒ヽ\n' +
-  //     '　　　/ 　 へ＼\n' +
-  //     '　　 /　　/　＼＼\n' +
-  //     '　　 ﾚ　ノ　　 ヽ_つ\n' +
-  //     '　　/　/ 두둠칫\n' +
-  //     '　 /　/|\n' +
-  //     '　(　(ヽ\n' +
-  //     '　|　|、＼\n' +
-  //     '　| 丿 ＼ ⌒)\n' +
-  //     '　| |　　) /\n' +
-  //     '(`ノ )　　Lﾉ\n' +
-  //     '' +
-  //     '';
-  //     channel.send(data);
-  // }
 });
 
 slack.on('error', function(err) {
