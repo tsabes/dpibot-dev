@@ -58,6 +58,22 @@ slack.on('message', function(message) {
           '' +
           '';
           channel.send(data);
+  } else if(message.text == "!소개") {
+        channel.send("`여러분의 회사생활 도우미 DPIbot 입니다`");
+        channel.send("`저와 은밀히 대화하려면 /dm @DPIbot <message> 명령을 이용해주세요`");
+        var data =
+            '```' +
+            '============ Command List =============\n' +
+            '!소개-이 명령을 출력합니다.` \n' +
+            '!응급-응급 전화번호 출력합니다.` \n' +
+            '!메뉴-R5 5층 점심메뉴 출력합니다.` \n' +
+            '!춤-춤을 춥니다.` \n' +
+            '!한강-한강의 수온을 알려드립니다.` \n' +
+            '```' +
+            '' +
+            '';
+        channel.send(data);
+      });
   }
 });
 
