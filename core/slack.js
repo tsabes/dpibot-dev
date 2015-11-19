@@ -59,24 +59,9 @@ slack.on('message', function(message) {
           '';
           channel.send(data);
   } else if(message.text == "!소개") {
-        var data1 =
-            '                     _____________________________   \n' +
-            '                    /                             \\  \n' +
-            '   //\\              |  여러분의 친구 DPI봇 입니다 |  \n' +
-            '  ////\\    _____    |    /dm @dpibot <message>    |  \n' +
-            ' //////\\  /_____\\    \\                            /  \n' +
-            ' ======= |[^_/\\_]|   /----------------------------   \n' +
-            '  |   | _|___@@__|__       \n' +
-            '  +===+/  ///     \\_\\      \n' +
-            '   | |_\\ ///  DPI /\\\\      \n' +
-            '   |___/\\//  BOT /  \\\\     \n' +
-            '         \\      /   +---+  \n' +
-            '          \\____/    |   |  \n' +
-            '           | //|    +===+  \n' +
-            '            \\//      |xx|  \n' +
-            '' +
-            '';
-        var data2 =
+        channel.send("`여러분의 친구 DPI봇 입니다^^`");
+        channel.send("`혼자보기: /dm @dpibot \"!명령\"`");
+        var data =
             '```' +
             '============ Command List =============\n' +
             '!소개-이 명령을 출력합니다. \n' +
@@ -87,8 +72,7 @@ slack.on('message', function(message) {
             '```' +
             '' +
             '';
-        channel.send(data1);
-        channel.send(data2);
+        channel.send(data);
   } else if(message.text == "!응급") {
         channel.send("`응급전화번호는 031-200-3119 입니다!`");
   }
