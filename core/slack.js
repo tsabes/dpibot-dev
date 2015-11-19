@@ -54,7 +54,7 @@ slack.on('message', function(message) {
           '　|　|、＼\n' +
           '　| 丿 ＼ ⌒)\n' +
           '　| |　　) /\n' +
-          '(`ノ )　　Lﾉ\n' +
+          '(`ノ )　Lﾉ\n' +
           '' +
           '';
           channel.send(data);
