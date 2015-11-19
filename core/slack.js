@@ -59,7 +59,7 @@ slack.on('message', function(message) {
           '';
           channel.send(data);
   } else if(message.text == "!소개") {
-        channel.send("`여러분의 친구 DPI봇 입니다^^`");
+        channel.send("`안녕하세요. 여러분의 친구 DPI봇 입니다^^`");
         channel.send("`혼자보기: /dm @dpibot \"!명령\"`");
         var data =
             '```' +
