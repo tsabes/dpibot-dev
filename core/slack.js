@@ -73,8 +73,10 @@ slack.on('message', function(message) {
             '' +
             '';
         channel.send(data);
-      });
+  } else if(message.text == "!응급") {
+        channel.send("`응급전화번호는 031-200-3119 입니다!`");
   }
+
 });
 
 slack.on('error', function(err) {
