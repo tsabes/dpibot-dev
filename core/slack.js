@@ -64,19 +64,20 @@ slack.on('message', function(message) {
         var data =
             '```' +
             '============ Command List =============\n' +
-            '!소개-이 명령을 출력합니다. \n' +
-            '!응급-응급 전화번호 출력합니다. \n' +
-            '!메뉴-R5 5층 점심메뉴 출력합니다. \n' +
-            '!춤-춤을 춥니다.` \n' +
-            '!한강-한강의 수온을 알려드립니다. \n' +
+            '!소개 - 이 명령을 출력합니다. \n' +
+            '!응급 - 사내 응급 전화번호 출력합니다. \n' +
+            '!메뉴 - R5 5층 점심메뉴 출력합니다. \n' +
+            '!춤 - 춤을 춥니다.  \n' +
+            '!한강 - 한강의 수온을 알려드립니다. \n' +
             '```' +
             '' +
             '';
         channel.send(data);
   } else if(message.text == "!응급") {
-        channel.send("`응급전화번호는 031-200-3119 입니다!`");
+        channel.send("`응급번호는 031-200-3119 입니다!!`");
+  } else if(message.text == "!메뉴") {
+        channel.send("`준비중 입니다`");
   }
-
 });
 
 slack.on('error', function(err) {
@@ -84,5 +85,4 @@ slack.on('error', function(err) {
 });
 
 slack.login();
-
 
