@@ -69,11 +69,12 @@ slack.on('message', function(message) {
             '!메뉴 - R5 식사메뉴 출력합니다. \n' +
             '!춤 - 춤을 춥니다.  \n' +
             '!한강 - 한강의 수온을 알려드립니다. \n' +
-            '             - v1.0.0 -             \n' +
             '```' +
             '' +
             '';
         channel.send(data);
+  } else if(message.text == "!버전") {
+        channel.send("`Version : v1.0.0`");
   } else if(message.text == "!응급") {
         channel.send("`응급번호는 031-200-3119 입니다!!`");
   } else if(message.text == "!메뉴") {
