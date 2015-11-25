@@ -93,6 +93,9 @@ slack.on('message', function(message) {
         channel.send("`응급번호는 031-200-3119 입니다!!`");
   } else if(message.text == "!메뉴") {
         channel.send("`준비중 입니다`");
+  } else if(message.text == "!버그") {
+        channel.send("`Trouble Shooting : tsabs87@gmail.com`");
+        channel.send("`mySingle ID : seba.lee`");
   } 
 });
 
