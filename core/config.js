@@ -1,7 +1,7 @@
 module.exports = {
-  slack: {
-    slackToken: 'xoxb-14570862423-XbkIeyxp1FxsjFgVxfx7Oeuf', // sebot
-    autoReconnect : true,
-    autoMark : true
-  }
+    slack: {
+        slackToken: 'xoxb-14944104018-rj6sLvx9NTBikI9wkBTFrtpk', // dpibot
+        autoReconnect : true,
+        autoMark : true
+    }
 }
