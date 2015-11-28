@@ -34,17 +34,17 @@ slack.on('message', function(message) {
             '';
         channel.send(data);
     }
-/*
-    if(message.text === "!종목") {
-        // function.json 에 대항하는 기능을 수행한다.
-        var stockList = require('./data/stock.json');
-        var listStr = '!{종목이름} 형태로 호가를 확인할 수 있습니다.'
+
+    else if(message.text === "!식당") {
+        function.json 에 대항하는 기능을 수행한다.
+        var menuList = require('./data/menu.json');
+        var listStr = '!{식당이름} 형태로 메뉴를 확인할 수 있습니다.'
         _.forEach(stockList, function(stock) {
-        listStr += stock.name + '\n';
+            listStr += stock.name + '\n';
         });
         channel.send(listStr);
     }
-*/
+
     else if(message.text == "!메뉴") {
         channel.send("`준비중 입니다`");
     }
@@ -99,6 +99,9 @@ slack.on('message', function(message) {
     }
     else if(message.text == "!버전") {
         channel.send("`Version : v1.0.0`");
+    }
+    else if(message.text == "!버그") {
+        channel.send("`Trouble Shoot: seba.lee@samsung.com(tsabes87@gmail.com)`");
     }
 });
 
