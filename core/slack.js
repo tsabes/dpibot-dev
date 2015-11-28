@@ -34,17 +34,17 @@ slack.on('message', function(message) {
             '';
         channel.send(data);
     }
-
+/*
     else if(message.text === "!식당") {
         //function.json 에 대항하는 기능을 수행한다.
         var menuList = require('./data/menu.json');
-        var listStr = '!{식당이름} 형태로 메뉴를 확인할 수 있습니다.'
-        _.forEach(stockList, function(stock) {
-            listStr += stock.name + '\n';
+        var listStr = '!{식당이름} 형태로 메뉴를 확인할 수 있습니다.\n'
+        _.forEach(menuList, function(menu) {
+            listStr += menu.name + '\n';
         });
         channel.send(listStr);
     }
-
+*/
     else if(message.text == "!메뉴") {
         channel.send("`준비중 입니다`");
     }
