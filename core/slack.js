@@ -45,6 +45,9 @@ slack.on('message', function(message) {
         channel.send(listStr);
     }
 */
+    else if(message.text == "!메뉴") {
+        channel.send("`준비중 입니다`");
+    }
     else if(message.text == "!한강") {
         request('http://hangang.dkserver.wo.tc', function (error, response, body) {
             if (!error && response.statusCode == 200) {
@@ -91,19 +94,12 @@ slack.on('message', function(message) {
             '';
         channel.send(data);
     }
-    else if(message.text == "!버전") {
-        channel.send("`Version : v1.0.0`");
-    }
     else if(message.text == "!응급") {
         channel.send("`응급번호는 031-200-3119 입니다!!`");
     }
-    else if(message.text == "!메뉴") {
-        channel.send("`준비중 입니다`");
+    else if(message.text == "!버전") {
+        channel.send("`Version : v1.0.0`");
     }
-    else if(message.text == "!버그") {
-        channel.send("`Trouble Shooting : tsabs87@gmail.com`");
-        channel.send("`mySingle ID : seba.lee`");
-    } 
 });
 
 slack.on('error', function(err) {
