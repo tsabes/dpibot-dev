@@ -36,7 +36,7 @@ slack.on('message', function(message) {
     }
 
     else if(message.text === "!식당") {
-        function.json 에 대항하는 기능을 수행한다.
+        //function.json 에 대항하는 기능을 수행한다.
         var menuList = require('./data/menu.json');
         var listStr = '!{식당이름} 형태로 메뉴를 확인할 수 있습니다.'
         _.forEach(stockList, function(stock) {
