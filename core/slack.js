@@ -45,6 +45,10 @@ slack.on('message', function(message) {
         channel.send(listStr);
     }
 */
+    else if(message.text == "!114") {
+        channel.send("`응급:031-200-3119`");
+        channel.send("`PC도움:031-8062-6114`");
+    }
     else if(message.text == "!메뉴") {
         channel.send("`준비중 입니다`");
     }
@@ -93,9 +97,6 @@ slack.on('message', function(message) {
             '' +
             '';
         channel.send(data);
-    }
-    else if(message.text == "!응급") {
-        channel.send("`응급번호는 031-200-3119 입니다!!`");
     }
     else if(message.text == "!버전") {
         channel.send("`Version : v1.0.0`");
