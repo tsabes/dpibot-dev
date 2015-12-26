@@ -27,3 +27,6 @@ build/Release
 
 # Dependency directory
 node_modules
+
+# Test Code
+example.js
