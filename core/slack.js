@@ -78,8 +78,10 @@ slack.on('message', function(message) {
                     fifth = fifth + '\n' + $(this).text();
                 });
 
-                var data = '```' + first + '```' + '```' + fifth + '```';
+                var data = '```' + first + '```';
+                channel.send(data);
 
+                data = '```' + fifth + '```';
                 channel.send(data);
             }
             else {
