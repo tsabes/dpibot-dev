@@ -5,6 +5,10 @@ var fs = require('fs')
     , Slack = require('slack-client')
     , debug = require('debug')('slack');
 
+var cheerio = require('cheerio');
+var Iconv = require('iconv').Iconv;
+var date = require('date-utils');
+
 var config = require('../core/config')
     , slack = new Slack(config.slack.slackToken, config.slack.autoReconnect, config.slack.autoMark);
 
@@ -50,7 +54,38 @@ slack.on('message', function(message) {
         channel.send("`PC도움:031-8062-6114`");
     }
     else if(message.text == "!메뉴") {
-        channel.send("`준비중 입니다`");
+        var iconv = new Iconv('EUC-KR','UTF-8//TRANSLIT//IGNORE');
+        var dt = new Date();
+        var d = dt.toFormat('YYYYMMDD');
+
+        var url = 'http://www.welstory.com/menu/Suwon_sec/foodcourt_R5.jsp?sDate=' + d;
+
+        request({ uri : url, encoding : 'binary' }, function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+                var strContents = new Buffer(body, 'binary');
+                strContents = iconv.convert(strContents).toString();
+
+                $ = cheerio.load(strContents);
+
+                var first = "[지하 1층]"
+                var fifth = "[5층]"
+
+                $("#floor_2_1 .restaurant_menu").each(function() {
+                    first = first + '\n' + $(this).text();
+                });
+                
+                $("#floor_2_5 .restaurant_menu").each(function() {
+                    fifth = fifth + '\n' + $(this).text();
+                });
+
+                var data = '```' + first + '```' + '```' + fifth + '```';
+
+                channel.send(data);
+            }
+            else {
+                channel.send("`죄송합니다. 메뉴를 가져오지 못했습니다.`");
+            }
+        });
     }
     else if(message.text == "!한강") {
         request('http://hangang.dkserver.wo.tc', function (error, response, body) {
@@ -100,7 +135,7 @@ slack.on('message', function(message) {
         channel.send(data);
     }
     else if(message.text == "!버전") {
-        channel.send("`Version : v1.0.0`");
+        channel.send("`Version : v1.0.1`");
     }
     else if(message.text == "!버그") {
         channel.send("`Trouble Shoot: seba.lee@samsung.com(tsabes87@gmail.com)`");
