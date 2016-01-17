@@ -29,5 +29,5 @@ build/Release
 node_modules/*
 
 # slack key
-core/config.js
+#core/config.js
 
